@@ -1,0 +1,24 @@
+<launch>
+
+<arg name="rosbot_pro" default="true" />
+<arg name="use_gazebo" default="false" />
+
+<group unless="$(arg use_gazebo)"> 
+   <include file="$(find rosbot_ekf)/launch/all.launch">
+   <arg name="rosbot_pro" value="$(arg rosbot_pro)" />
+    </include>
+    <include unless="$(arg use_gazebo)" file="$(find astra_launch)/launch/astra.launch"/>
+</group>  
+
+<node pkg="husarion_joy" type="logitech_joy" name="joy_control_husarion_node" output="screen"/>
+
+ 
+
+ <!-- joy node -->
+    <node pkg="joy" type="joy_node" name="joy_node" output="screen"/>
+    <!--<node respawn="true" pkg="joy" type="joy_node" name="joystick_publisher" >-->
+    <param name="dev" type="string" value="/dev/input/js0" />
+    <!--<param name="deadzone" value="0.12" />-->
+<!--</node>-->
+
+</launch>
