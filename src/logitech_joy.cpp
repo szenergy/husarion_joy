@@ -59,6 +59,7 @@ twist.linear.x = 0;
 twist.angular.z = 0;
 
 while(ros::ok()){
+   vel_pub.publish(twist);
    ros::spinOnce();
    loop_r.sleep();
 }
