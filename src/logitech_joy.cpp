@@ -47,7 +47,7 @@ int main(int argc, char** argv){
 // Init
 ros::init(argc, argv, "joy_to_something_node");
 nh = new ros::NodeHandle();
-ros::Rate loop_r(15);
+ros::Rate loop_r(10);
 
 // Subs
 ros::Subscriber joy_sub = nh->subscribe("joy", 10, joy_cb);
