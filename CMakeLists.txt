@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(husarion_joy)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -103,7 +103,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## LIBRARIES: libraries you create in this project that dependent projects also need
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
-#catkin_package(
+catkin_package(
 # INCLUDE_DIRS include
 #  LIBRARIES joystick_pkg
 # CATKIN_DEPENDS 
@@ -112,7 +112,7 @@ find_package(catkin REQUIRED COMPONENTS
 #  std_msgs
 #  nav_msgs
 #  DEPENDS system_lib
-# )
+)
 
 ###########
 ## Build ##
@@ -121,7 +121,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  include
+  #include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -140,7 +140,6 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(logitech_joy src/logitech_joy.cpp)
 target_link_libraries(logitech_joy ${catkin_LIBRARIES})
-set_target_properties(logitech_joy PROPERTIES COMPILE_FLAGS "${CPP_DEVEL_FLAGS}")
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
